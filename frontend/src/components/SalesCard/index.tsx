@@ -25,8 +25,7 @@ function SalesCard() {
         {/* Converter data para o formato (AAAA-MM-DD) recortando o horario */}
         const dmax = maxDate.toISOString().slice(0, 10);
 
-        console.log(dmin);
-
+        
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
             .then(response => {
                 setSales(response.data.content);
@@ -82,7 +81,7 @@ function SalesCard() {
                                     <td>
                                         <div className="dsmeta-red-btn-container">
                                             <div className="dsmeta-red-btn">
-                                                <NotificationButton />
+                                                <NotificationButton saleId={sale.id}/>
                                             </div>
                                         </div>
                                     </td>
